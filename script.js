@@ -171,6 +171,20 @@ const publications = [
     description: ""
   },
   {
+    title: "Per-Finger Prosthetic Grasp Planning Using Object-Aligned Bounding Box Representation and VLM-Driven Object Selection",
+    titleLink: "https://www.mdpi.com/2076-3417/16/12/5736",
+    image: "static/papers/linker-vlm.png",
+    authors: [
+      { name: "Shifa Sulaiman", link: "https://scholar.google.com/citations?user=ck7Yia8AAAAJ&hl=en" },
+      { name: "Akash Bachhar", link: null },
+      { name: "Ming Shen", link: "https://scholar.google.com/citations?user=3m43L38AAAAJ&hl=en" },
+      { name: "Simon Bøgh", link: "https://scholar.google.com/citations?user=l3u9RVgAAAAJ&hl=en" },
+      { name: "Luigi Bibbo", link: "https://scholar.google.com/scholar?q=Luigi+Bibbo" }
+    ],
+    journal: "Applied Sciences 16 (12), 5736",
+    description: "A Vision–Language Model identifies the target object and triggers grasping only on confident recognition, enabling intent-aware control. An object-aligned bounding box from the segmented point cloud supports accurate distance and collision queries, after which per-finger contact poses are planned independently and solved via Damped Least Squares inverse kinematics. Validated on the physical Linker Hand O7, achieving 93.2% segmentation accuracy (93.4% in simulation) with stable, real-time grasp execution across representative objects."
+  },
+  {
     title: "Vision-Guided Grasp Planning for Prosthetic Hands with AABB-Based Object Representation",
     titleLink: "https://www.mdpi.com/2218-6581/15/1/22",
     image: "static/papers/linker-grasp.mp4",
@@ -180,8 +194,8 @@ const publications = [
       { name: "Ming Shen", link: "https://scholar.google.com/citations?user=3m43L38AAAAJ&hl=en" },
       { name: "Simon Bøgh", link: "https://scholar.google.com/citations?user=l3u9RVgAAAAJ&hl=en" }
     ],
-    journal: "Robotics",
-    description: "This paper presents a vision-guided grasp planning framework for prosthetic hands operating in unstructured environments. A camera-mounted setup captures the scene, and a Bounding Volume Hierarchy (BVH)-based vision algorithm segments the target object and defines its bounding box. Candidate grasp trajectories are generated using the Rapidly-exploring Random Tree Star (RRT*) algorithm, and fingertip end poses are selected based on minimum Euclidean distance to the object point cloud. Each finger grasp pose is planned independently, enabling adaptive, object-specific configurations. A Damped Least Squares (DLS)-based inverse kinematics solver computes joint angles, which are transmitted to the finger actuators for execution. The modular pipeline supports real-time adaptability and is validated in simulation and on a Linker Hand O7 platform."
+    journal: "Robotics 15 (1), 22",
+    description: "This paper presents a vision-guided grasp planning framework for prosthetic hands in unstructured environments. A wrist-mounted camera captures the scene, and a Bounding Volume Hierarchy (BVH) algorithm segments the target object and computes its bounding box. Grasp trajectories are generated via Rapidly-exploring Random Tree Star (RRT*), with each fingertip pose selected by minimum Euclidean distance to the object point cloud. Fingers are planned independently for adaptive, object-specific grasps, with Damped Least Squares inverse kinematics resolving joint angles. Validated via sim-to-real transfer on the physical Linker Hand O7."
   },
   {
     title: "Single-Actuator Driven Symmetric Five-Bar Mechanism for Producing Reciprocal Rectilinear High-Deflection Motion for Pumping Bag-Valve-Mask (BVM)",
@@ -205,7 +219,7 @@ const publications = [
       { name: " Samik Dutta ", link: "https://scholar.google.co.in/citations?user=duW31DIAAAAJ&hl=en" },
       { name: "Priyabrata Banerjee", link: "https://www.priyabratabanerjee.in/" },
     ],
-    journal: "International Journal of Electrochemical Science",
+    journal: "International Journal of Electrochemical Science 19 (9), 100746",
     description: "A new method using k-means image segmentation has been developed to accurately and quickly measure corrosion damage on mild steel surfaces. The study also tested the corrosion inhibition efficiency of four different inhibitors via electrochemical experiments. The experimental findings closely matched theoretical predictions, confirming that this image processing approach provides a reliable and practical means for evaluating corrosion inhibition.",
   },
 ];
