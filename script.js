@@ -318,7 +318,7 @@ const miniProjects = [
   {
     title: "Third Eye – Real-Time Driver Drowsiness Detection and Alert System",
     titleLink: "https://github.com/akashbachhar/third-eye",
-    image: "static/mini-projects/third-eye.mp4"
+    image: "static/mini-projects/third-eye.png"
   },
 
   {
