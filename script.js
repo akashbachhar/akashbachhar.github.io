@@ -161,7 +161,7 @@ const publications = [
   {
     title: "A Comparative Study of Hierarchical Vision-Based and Sequential Deep Learning Architectures for Multi-Subject Locomotion Mode Detection, Speed, and Gait Phase Estimation",
     titleLink: "#",
-    image: "static/papers/exo.mp4",
+    image: "static/papers/exo.png",
     authors: [
       { name: "Debadrata Sarkar", link: "https://scholar.google.com/citations?hl=en&user=a5w-W7UAAAAJ&view_op=list_works&sortby=pubdate" },
       { name: "Akash Bachhar", link: null },
