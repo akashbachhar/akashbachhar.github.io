@@ -1,5 +1,7 @@
 // script.js
 
+const PARTICLE_EFFECT_ENABLED = false;
+
 // Get toggle button
 const toggle = document.getElementById('dark-mode-toggle');
 
@@ -25,6 +27,8 @@ toggle.addEventListener('click', () => {
 // Adapts to: light/dark toggle, any screen size
 // ===========================
 (function () {
+  if (!PARTICLE_EFFECT_ENABLED) return;
+
   const canvas = document.getElementById('particle-canvas');
   const ctx = canvas.getContext('2d');
 
@@ -159,18 +163,6 @@ toggle.addEventListener('click', () => {
 
 const publications = [
   {
-    title: "A Comparative Study of Hierarchical Vision-Based and Sequential Deep Learning Architectures for Multi-Subject Locomotion Mode Detection, Speed, and Gait Phase Estimation",
-    titleLink: "#",
-    image: "static/papers/exo.png",
-    authors: [
-      { name: "Debadrata Sarkar", link: "https://scholar.google.com/citations?hl=en&user=a5w-W7UAAAAJ&view_op=list_works&sortby=pubdate" },
-      { name: "Akash Bachhar", link: null },
-      { name: "Aman Arora", link: "https://scholar.google.com/citations?user=eGNNHKwAAAAJ&hl=en" }
-    ],
-    journal: "Manuscript in Preparation, 2026",
-    description: ""
-  },
-  {
     title: "Per-Finger Prosthetic Grasp Planning Using Object-Aligned Bounding Box Representation and VLM-Driven Object Selection",
     titleLink: "https://www.mdpi.com/2076-3417/16/12/5736",
     image: "static/papers/linker-vlm.png",
@@ -182,7 +174,19 @@ const publications = [
       { name: "Luigi Bibbo", link: "https://scholar.google.com/scholar?q=Luigi+Bibbo" }
     ],
     journal: "Applied Sciences 16 (12), 5736",
-    description: "A Vision–Language Model identifies the target object and triggers grasping only on confident recognition, enabling intent-aware control. An object-aligned bounding box from the segmented point cloud supports accurate distance and collision queries, after which per-finger contact poses are planned independently and solved via Damped Least Squares inverse kinematics. Validated on the physical Linker Hand O7, achieving 93.2% segmentation accuracy (93.4% in simulation) with stable, real-time grasp execution across representative objects."
+    description: "A Vision-Language Model identifies the target object and triggers grasping only on confident recognition, enabling intent-aware control. An object-aligned bounding box from the segmented point cloud supports accurate distance and collision queries, with per-finger contact poses planned independently and solved via Damped Least Squares inverse kinematics. Validated on the physical Linker Hand O7, achieving 93.2% segmentation accuracy (93.4% in simulation) with stable, real-time grasp execution."
+  },
+  {
+    title: "Hierarchical Vision-Based and Sequential Deep Learning Architectures for Subject-Independent Locomotion Mode Detection, Speed, and Gait Phase Estimation",
+    titleLink: "#",
+    image: "static/papers/exo.png",
+    authors: [
+      { name: "Debadrata Sarkar", link: "https://scholar.google.com/citations?hl=en&user=a5w-W7UAAAAJ&view_op=list_works&sortby=pubdate" },
+      { name: "Akash Bachhar", link: null },
+      { name: "Aman Arora", link: "https://scholar.google.com/citations?user=eGNNHKwAAAAJ&hl=en" }
+    ],
+    journal: "Manuscript in Preparation",
+    description: ""
   },
   {
     title: "Vision-Guided Grasp Planning for Prosthetic Hands with AABB-Based Object Representation",
@@ -195,7 +199,7 @@ const publications = [
       { name: "Simon Bøgh", link: "https://scholar.google.com/citations?user=l3u9RVgAAAAJ&hl=en" }
     ],
     journal: "Robotics 15 (1), 22",
-    description: "This paper presents a vision-guided grasp planning framework for prosthetic hands in unstructured environments. A wrist-mounted camera captures the scene, and a Bounding Volume Hierarchy (BVH) algorithm segments the target object and computes its bounding box. Grasp trajectories are generated via Rapidly-exploring Random Tree Star (RRT*), with each fingertip pose selected by minimum Euclidean distance to the object point cloud. Fingers are planned independently for adaptive, object-specific grasps, with Damped Least Squares inverse kinematics resolving joint angles. Validated via sim-to-real transfer on the physical Linker Hand O7."
+    description: "Introduces a vision-guided grasp planning framework for prosthetic hands in unstructured environments. A wrist-mounted camera and Bounding Volume Hierarchy (BVH) algorithm segment the target object and compute its bounding box, with grasp trajectories generated via RRT* and fingertip poses selected by minimum Euclidean distance to the object point cloud. Fingers are planned independently using Damped Least Squares inverse kinematics for adaptive, object-specific grasps. Validated via sim-to-real transfer on the physical Linker Hand O7."
   },
   {
     title: "Single-Actuator Driven Symmetric Five-Bar Mechanism for Producing Reciprocal Rectilinear High-Deflection Motion for Pumping Bag-Valve-Mask (BVM)",
@@ -205,7 +209,7 @@ const publications = [
       { name: "Nilanjan Chattaraj", link: "https://scholar.google.com/citations?user=WxgLo6kAAAAJ&hl=en" },
       { name: "Akash Bachhar", link: null }
     ],
-    journal: "Journal of Vibration Engineering & Technologies (Accepted, 2025)",
+    journal: "Journal of Vibration Engineering & Technologies (Accepted)",
     description: "This work presents a novel single-actuator driven symmetric five-bar mechanism capable of generating high-deflection reciprocal rectilinear motion, specifically designed for automated Bag-Valve-Mask (BVM) pumping applications. The mechanism achieves precise motion control with reduced mechanical complexity, offering a compact, reliable, and cost-effective solution for emergency respiratory support systems."
   },
   {
@@ -220,7 +224,7 @@ const publications = [
       { name: "Priyabrata Banerjee", link: "https://www.priyabratabanerjee.in/" },
     ],
     journal: "International Journal of Electrochemical Science 19 (9), 100746",
-    description: "A new method using k-means image segmentation has been developed to accurately and quickly measure corrosion damage on mild steel surfaces. The study also tested the corrosion inhibition efficiency of four different inhibitors via electrochemical experiments. The experimental findings closely matched theoretical predictions, confirming that this image processing approach provides a reliable and practical means for evaluating corrosion inhibition.",
+    description: "Developed a k-means image segmentation method for rapid, accurate quantification of corrosion damage on mild steel surfaces, and evaluated the inhibition efficiency of four synthesized inhibitors via electrochemical experiments. Experimental results closely matched theoretical predictions, validating the image processing approach as a reliable tool for corrosion inhibition assessment.",
   },
 ];
 
@@ -242,10 +246,23 @@ publications.forEach(pub => {
     }
 </div>
         <div class="pub-details">
-          <h3><a href="${pub.titleLink}" target="_blank">${pub.title}</a></h3>
+          <h3>${pub.title}</h3>
           <p class="pub-authors">${authorsHTML}</p>
           <p class="pub-journal"><strong>${pub.journal}</strong></p>
           <p class="pub-description truncate-mobile">${pub.description}</p>
+          ${pub.titleLink && pub.titleLink !== "#" ? `
+          <a class="project-code-link" href="${pub.titleLink}" target="_blank">
+            <span class="link-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </span>
+            <span>Paper</span>
+          </a>` : ""}
         </div>
       </div>
     `;
@@ -253,34 +270,37 @@ publications.forEach(pub => {
 
 const projects = [
   {
-    title: "Force-Reflecting Hand Exoskeleton for Master-Slave Remote Handling",
+    title: "Force-Reflecting Hand Exoskeleton for Master-Slave Remote Handling (Final Year Thesis)",
     titleLink: "#",
     image: "static/projects/allegro.mp4",
-    description: "Designed and developed an indigenous, DRDO-funded remote manipulation system tailored for defense applications. The system features a custom-built hand exoskeleton providing precise, bidirectional kinesthetic force feedback, enhanced by integrated IMUs and potentiometers to accurately track and transmit joint angles. These master-side movements are kinematically retargeted to an Allegro robotic hand at the remote (slave) end, enabling dexterous manipulation. Grasping forces from the remote site are mirrored back to the user in real-time through the exoskeleton. Additionally, the setup incorporates a head-mounted display paired with a remotely operated 3-axis servo gimbal and 3D camera, delivering an immersive visual experience of the remote environment."
+    description: "Developed a DRDO-funded hand exoskeleton for master-slave remote manipulation, providing bidirectional kinesthetic force feedback via IMUs and potentiometers. Master-side movements are kinematically retargeted to an Allegro robotic hand, with grasping forces mirrored back in real time. Includes a head-mounted display and 3-axis servo gimbal camera for immersive remote operation."
   },
   {
     title: "MARCUS - Magnetic Adhesion Remote Controlled Utility Surface-Crawler",
     titleLink: "#",
     image: "static/projects/marcus.mp4",
-    description: "A flameproof, weather-resistant, remotely operated surface-crawling robot tailored for efficient LPG Horton sphere maintenance. Featuring permanent magnetic adhesion optimized specifically for curved surfaces and powered by pneumatic drive motors, the robot is wirelessly controlled via joystick from the ground. Its modular and adjustable magnetic system ensures optimal grip across varying sphere geometries. Capable of tasks such as cleaning, painting, and non-destructive testing (NDT), MARCUS significantly reduces manpower by up to 80%, operational time by 90%, and entirely eliminates risks associated with working at heights, including costly scaffolding requirements."
+    description: "Developed a flameproof, weather-resistant surface-crawling robot for LPG Horton sphere maintenance, using permanent magnetic adhesion optimized for curved surfaces and pneumatic drive motors. Wirelessly controlled via joystick, with a modular magnetic system ensuring grip across varying sphere geometries. Enables cleaning, painting, and NDT tasks, cutting manpower by 80% and operational time by 90% while eliminating height-related risks and scaffolding costs."
   },
   {
-    title: "Quadruped Robot Gait Simulation using ROS and Gazebo",
+    title: "Quadruped Locomotion: Kinematics, Control, and Gait Generation in ROS 2 (Summer Internship)",
     titleLink: "#",
-    image: "static/projects/quadruped.jpeg",
-    description: "Conducted simulations of quadruped robot locomotion in Gazebo, integrating ROS Control to analyze and enhance motion dynamics. Fine-tuned PID motor controllers to optimize robot stability and responsiveness. Developed precise forward and inverse kinematics algorithms for accurate limb manipulation. Additionally, implemented versatile static and dynamic gaits (trot and walk), enabling the quadruped to adeptly navigate inclined wedge terrains"
+    image: "static/projects/anymal-ros.gif",
+    codeLink: "https://github.com/akashbachhar/anymal-locomotion-ros2",
+    description: "Built a full locomotion stack for the ANYmal quadruped in ROS 2 and Gazebo — closed-form kinematics, joint control, and gait generation. Derived analytical forward/inverse kinematics for all four legs directly from the URDF, replacing numerical solvers with exact closed-form expressions. Designed a PD-plus-gravity-feedforward joint controller and an IMU-driven PID stabilizer, tuned against measured tracking error and sensor-frame quirks. Generated static and dynamic gaits (walk, trot) from a shared duty-factor/phase-offset model, with a diagnostic tool to quantify gait quality from live telemetry."
   },
   {
     title: "Roll Cage Design and Manufacturing for BAJA SAE 2023",
     titleLink: "#",
+    presentationLink: "https://docs.google.com/presentation/d/1fj9A4eBqIGFRc_wGlcEfiZo6jPkf8MzufQw0LQpxkcg/edit?usp=sharing",
     image: "static/projects/ndors.mp4",
-    description: "As Roll Cage Head of Team NDORS, NIT Durgapur, led the design and fabrication of a lightweight, high-strength roll cage for an all-terrain vehicle competing in BAJA SAE India 2023. Optimized material selection and structural design according to the rulebook, achieving a 20% cost reduction and 30% weight reduction over the previous year. Performed extensive 2D and 3D static (frontal, rear, side impacts, bump tests) and dynamic analyses (rollover, head-on collisions), continuously refining the design for maximum safety and performance. Ensured ergonomic integration of the driver and vehicle subsystems for real-world usability. Supervised manufacturing validation through weld strength testing (UTM), drop tests, and other quality checks. The team secured 2nd place in CAE Presentation, 3rd in All-Terrain Performance among IITs and NITs, and achieved an overall rank of 16th and 19th nationally."
+    description: "Led the design and fabrication of a lightweight, high-strength roll cage as Roll Cage Head of Team NDORS, NIT Durgapur, for BAJA SAE India 2023. Optimized material and structural design per the rulebook, achieving 20% cost and 30% weight reduction over the previous year. Conducted static (impact, bump) and dynamic (rollover, collision) analyses, and validated manufacturing through weld strength and drop testing. The team placed 2nd in CAE Presentation and 3rd in All-Terrain Performance among IITs and NITs, ranking 16th and 19th nationally."
   },
   {
     title: "SpecsX – Gyroscopic Smart Glasses for Hands-Free Computer Control",
-    titleLink: "https://github.com/akashbachhar/SpecsX",
+    titleLink: "#",
+    codeLink: "https://github.com/akashbachhar/SpecsX",
     image: "static/projects/specsx.png",
-    description: "Built a lightweight, gyroscope-equipped eyewear system that allows specially-abled individuals to control a computer's mouse and keyboard purely through head movements. Mouse clicks, including left-click, right-click, and double-click, are triggered intelligently by detecting eye blinks and their durations. SpecsX opens up enormous opportunities in education, communication, and digital access for specially-abled individuals, helping them interact with technology independently and confidently."
+    description: "Built a gyroscope-equipped eyewear system enabling specially-abled individuals to control a computer's mouse and keyboard through head movements, with clicks triggered by detecting eye blinks and their duration. SpecsX enables independent, confident digital access for education and communication."
   },
 
 ];
@@ -298,43 +318,67 @@ projects.forEach(proj => {
 </div>
 
         <div class="project-details">
-          <h3><a href="${proj.titleLink}" target="_blank">${proj.title}</a></h3>
+          <h3>${proj.title}</h3>
           <p class="project-description truncate-mobile">${proj.description}</p>
+          ${(proj.codeLink || proj.presentationLink) ? `
+          <div class="project-links-row">
+            ${proj.codeLink ? `
+            <a class="project-code-link" href="${proj.codeLink}" target="_blank">
+              <span class="link-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z">
+                  </path>
+                </svg>
+              </span>
+              <span>Code</span>
+            </a>` : ""}
+            ${proj.presentationLink ? `
+            <a class="project-code-link" href="${proj.presentationLink}" target="_blank">
+              <span class="link-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="13" rx="2"></rect>
+                  <path d="M8 21h8M12 17v4"></path>
+                </svg>
+              </span>
+              <span>Presentation</span>
+            </a>` : ""}
+          </div>` : ""}
         </div>
       </div>
     `;
 });
 const miniProjects = [
   {
-    title: "HandX – Robotic Hand Control via Image Processing-based Hand Posture Detection",
-    titleLink: "#",
-    image: "static/mini-projects/handx.mp4"
+    title: "Quadruped Locomotion with PPO-Based Reinforcement Learning",
+    codeLink: "https://github.com/akashbachhar/anymal-ppo-locomotion",
+    image: "static/mini-projects/anymal-ppo.gif"
   },
   {
     title: "ArmX – Precision Pick-and-Place with UR5e Robot using MoveIt",
-    titleLink: "https://github.com/akashbachhar/grasp-and-geometry-detection-ros",
-    image: "static/mini-projects/ur5e.mp4"
+    codeLink: "https://github.com/akashbachhar/grasp-and-geometry-detection-ros",
+    image: "static/mini-projects/ur5e.mp4",
+    mediaFit: "contain"
   },
   {
     title: "Third Eye – Real-Time Driver Drowsiness Detection and Alert System",
-    titleLink: "https://github.com/akashbachhar/third-eye",
+    codeLink: "https://github.com/akashbachhar/third-eye",
     image: "static/mini-projects/third-eye.png"
   },
 
   {
     title: "Design, Simulation, and Fabrication of High-Performance Solid Rocket Nozzle",
-    titleLink: "#",
     image: "static/mini-projects/nozzle.mp4"
   },
   {
-    title: "SpeedX – Immersive Gyroscope-Controlled Racing Game for Medical Rehabilitation",
-    titleLink: "https://github.com/akashbachhar/SpeedX",
-    image: "static/mini-projects/speedx.png"
+    title: "HandX – Robotic Hand Control via Image Processing-based Hand Posture Detection",
+    image: "static/mini-projects/handx.mp4"
   },
   {
-    title: "SolarSteps – Sunshine Availability Visualization App (NASA Space Apps Challenge)",
-    titleLink: "https://github.com/akashbachhar/SolarSteps",
-    image: "static/mini-projects/solarsteps.png"
+    title: "SpeedX – Immersive Gyroscope-Controlled Racing Game for Medical Rehabilitation",
+    codeLink: "https://github.com/akashbachhar/SpeedX",
+    image: "static/mini-projects/speedx.png"
   }
 
 
@@ -344,8 +388,9 @@ const miniProjects = [
 const miniProjectsGrid = document.getElementById('mini-projects-grid');
 
 miniProjects.forEach(mini => {
+  const fitClass = mini.mediaFit === "contain" ? " media-contain" : "";
   miniProjectsGrid.innerHTML += `
-    <div class="mini-project-item">
+    <div class="mini-project-item${fitClass}">
       ${
         mini.image.endsWith('.mp4')
           ? `<video
@@ -358,11 +403,18 @@ miniProjects.forEach(mini => {
              ></video>`
           : `<img src="${mini.image}" alt="${mini.title}">`
       }
-      <h4>
-        <a href="${mini.titleLink}" target="_blank">
-          ${mini.title}
-        </a>
-      </h4>
+      <h4>${mini.title}</h4>
+      ${mini.codeLink ? `
+      <a class="project-code-link mini-code-link" href="${mini.codeLink}" target="_blank">
+        <span class="link-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.4 7.86 10.93.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.07.78 2.16 0 1.56-.01 2.82-.01 3.2 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z">
+            </path>
+          </svg>
+        </span>
+        <span>Code</span>
+      </a>` : ""}
     </div>
   `;
 });
