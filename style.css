@@ -677,6 +677,10 @@ h2 {
     height: 170px;
   }
 
+  .project-links-row {
+    justify-content: center;
+  }
+
   .pub-details h3 a,
   .project-details h3 a {
     font-size: 18px;
