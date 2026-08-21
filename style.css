@@ -56,6 +56,12 @@ html {
   transition: background 0.4s ease;
 }
 
+@media (min-width: 769px) {
+  html {
+    zoom: 0.8;
+  }
+}
+
 #particle-canvas {
   position: fixed;
   inset: 0;
