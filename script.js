@@ -202,17 +202,6 @@ const publications = [
     description: "Introduces a vision-guided grasp planning framework for prosthetic hands in unstructured environments. A wrist-mounted camera and Bounding Volume Hierarchy (BVH) algorithm segment the target object and compute its bounding box, with grasp trajectories generated via RRT* and fingertip poses selected by minimum Euclidean distance to the object point cloud. Fingers are planned independently using Damped Least Squares inverse kinematics for adaptive, object-specific grasps. Validated via sim-to-real transfer on the physical Linker Hand O7."
   },
   {
-    title: "Single-Actuator Driven Symmetric Five-Bar Mechanism for Producing Reciprocal Rectilinear High-Deflection Motion for Pumping Bag-Valve-Mask (BVM)",
-    titleLink: "#",
-    image: "static/papers/5bar.mp4",
-    authors: [
-      { name: "Nilanjan Chattaraj", link: "https://scholar.google.com/citations?user=WxgLo6kAAAAJ&hl=en" },
-      { name: "Akash Bachhar", link: null }
-    ],
-    journal: "Journal of Vibration Engineering & Technologies (Accepted)",
-    description: "This work presents a novel single-actuator driven symmetric five-bar mechanism capable of generating high-deflection reciprocal rectilinear motion, specifically designed for automated Bag-Valve-Mask (BVM) pumping applications. The mechanism achieves precise motion control with reduced mechanical complexity, offering a compact, reliable, and cost-effective solution for emergency respiratory support systems."
-  },
-  {
     title: "Quantification and inhibition of corrosion on mild steel by the synthesized inhibitor through k-means clustering and electrochemical study: A dual approach",
     titleLink: "https://www.sciencedirect.com/science/article/pii/S1452398124002876",
     image: "static/papers/corrosion.jpg",
@@ -362,9 +351,8 @@ const miniProjects = [
     mediaFit: "contain"
   },
   {
-    title: "Third Eye – Real-Time Driver Drowsiness Detection and Alert System",
-    codeLink: "https://github.com/akashbachhar/third-eye",
-    image: "static/mini-projects/third-eye.png"
+    title: "Five-Bar Mechanism for Producing Reciprocal Rectilinear High-Deflection Motion for Pumping Bag-Valve-Mask (BVM)",
+    image: "static/papers/5bar.mp4"
   },
 
   {
