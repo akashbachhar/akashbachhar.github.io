@@ -177,16 +177,16 @@ const publications = [
     description: "A Vision-Language Model identifies the target object and triggers grasping only on confident recognition, enabling intent-aware control. An object-aligned bounding box from the segmented point cloud supports accurate distance and collision queries, with per-finger contact poses planned independently and solved via Damped Least Squares inverse kinematics. Validated on the physical Linker Hand O7, achieving 93.2% segmentation accuracy (93.4% in simulation) with stable, real-time grasp execution."
   },
   {
-    title: "Hierarchical Vision-Based and Sequential Deep Learning Architectures for Subject-Independent Locomotion Mode Detection, Speed, and Gait Phase Estimation",
-    titleLink: "#",
-    image: "static/papers/exo.png",
+    title: "Tread: A Visuo-Inertial Framework for Terrain and Locomotion Context-Aware Gait-Phase and Speed Estimation in Wearable Robotics",
+    titleLink: "https://arxiv.org/pdf/2610.19067",
+    image: "static/papers/exo-arc.png",
     authors: [
       { name: "Debadrata Sarkar", link: "https://scholar.google.com/citations?hl=en&user=a5w-W7UAAAAJ&view_op=list_works&sortby=pubdate" },
       { name: "Akash Bachhar", link: null },
       { name: "Aman Arora", link: "https://scholar.google.com/citations?user=eGNNHKwAAAAJ&hl=en" }
     ],
-    journal: "Manuscript in Preparation",
-    description: ""
+    journal: "Under Review",
+    description: "A visuo-inertial framework for wearable robotics that combines a chest-mounted camera and four lower-limb IMUs to perceive terrain, identify locomotion mode, and estimate gait. It classifies terrain with 96.3% accuracy, anticipates transitions 1.46 s ahead, and estimates gait phase (RMSE 1.75% to 4.55%) and walking speed (RMSE 0.218 km/h) in real time."
   },
   {
     title: "Vision-Guided Grasp Planning for Prosthetic Hands with AABB-Based Object Representation",
